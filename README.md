@@ -1,5 +1,13 @@
 # typst-cv
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+[![Build](https://img.shields.io/github/actions/workflow/status/xiaotianxt/typst-cv/ci.yml?branch=main&label=build)](https://github.com/xiaotianxt/typst-cv/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/xiaotianxt/typst-cv?label=release)](https://github.com/xiaotianxt/typst-cv/releases)
+[![License](https://img.shields.io/github/license/xiaotianxt/typst-cv)](LICENSE)
+[![GitHub Template](https://img.shields.io/badge/GitHub-template-181717?logo=github)](https://github.com/xiaotianxt/typst-cv/generate)
+[![Typst](https://img.shields.io/badge/Typst-0.14%2B-239DAD?logo=typst&logoColor=white)](https://typst.app)
+
 <p align="center">
   <img src="assets/project-hero.svg" alt="typst-cv project hero" />
 </p>
@@ -63,6 +71,12 @@ Run checks:
 make check-all
 ```
 
+Refresh the README preview image:
+
+```bash
+make preview PROFILE=software-engineer
+```
+
 ## Repository structure
 
 ```text
@@ -106,6 +120,25 @@ typst compile main.typ build/custom.pdf \
 4. Run `make check-all` before pushing.
 
 Profiles can override section order with `sectionOrder`. Supported values are `education`, `work`, `projects`, and `skills`.
+
+## Chinese / CJK support
+
+- The template stays warning-free by default and ships with an English sample dataset.
+- To render Chinese content, point `headingfont` and `bodyfont` in `main.typ` at fonts installed on your machine.
+- Chinese documentation is available in [README.zh-CN.md](README.zh-CN.md).
+
+Example CJK font override:
+
+```typst
+#let uservars = (
+  ..default-uservars,
+  headingfont: ("Songti SC", "Source Han Serif SC", "Noto Serif CJK SC"),
+  bodyfont: ("Songti SC", "Source Han Serif SC", "Noto Serif CJK SC"),
+  margin: 0.40in,
+  fontsize: 10pt,
+  linespacing: 6pt,
+)
+```
 
 ## GitHub launch checklist
 

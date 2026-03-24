@@ -12,8 +12,9 @@ PROFILES ?= $(shell awk '\
   } \
 ' $(PROFILES_FILE))
 ACTIVE_PROFILES ?= $(PROFILES)
+PREVIEW_OUTPUT ?= assets/resume-preview.png
 
-.PHONY: compile watch all watch-all profiles style-warn style-check check check-all clean
+.PHONY: compile watch all watch-all profiles preview style-warn style-check check check-all clean
 
 compile:
 	@mkdir -p $(OUT_DIR)
@@ -43,6 +44,11 @@ watch-all:
 
 profiles:
 	@for p in $(PROFILES); do echo $$p; done
+
+preview:
+	@mkdir -p $(OUT_DIR)
+	@$(MAKE) compile PROFILE=$(PROFILE)
+	@./scripts/generate-preview.sh "$(OUTPUT)" "$(PREVIEW_OUTPUT)"
 
 style-warn:
 	@./scripts/style-check.sh warn
