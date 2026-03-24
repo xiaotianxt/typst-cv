@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/resume-preview.png" alt="Sample resume preview" width="720" />
+  <img src="assets/resume-preview.svg" alt="Sample resume preview" width="720" />
 </p>
 
 ## Why this exists

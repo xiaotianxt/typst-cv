@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/resume-preview.png" alt="简历预览图" width="720" />
+  <img src="assets/resume-preview.svg" alt="简历预览图" width="720" />
 </p>
 
 ## 这个模板解决什么问题

@@ -12,7 +12,7 @@ PROFILES ?= $(shell awk '\
   } \
 ' $(PROFILES_FILE))
 ACTIVE_PROFILES ?= $(PROFILES)
-PREVIEW_OUTPUT ?= assets/resume-preview.png
+PREVIEW_OUTPUT ?= assets/resume-preview.svg
 
 .PHONY: compile watch all watch-all profiles preview style-warn style-check check check-all clean
 
@@ -47,8 +47,13 @@ profiles:
 
 preview:
 	@mkdir -p $(OUT_DIR)
-	@$(MAKE) compile PROFILE=$(PROFILE)
-	@./scripts/generate-preview.sh "$(OUTPUT)" "$(PREVIEW_OUTPUT)"
+	@case "$(PREVIEW_OUTPUT)" in \
+		*.svg) \
+			$(TYPST) compile main.typ "$(PREVIEW_OUTPUT)" --input profile=$(PROFILE) ;; \
+		*) \
+			$(MAKE) compile PROFILE=$(PROFILE); \
+			./scripts/generate-preview.sh "$(OUTPUT)" "$(PREVIEW_OUTPUT)" ;; \
+	esac
 
 style-warn:
 	@./scripts/style-check.sh warn
