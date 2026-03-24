@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: typst-community/setup-typst@v4
+        with:
+          typst-version: ^0.14.0
+
+      - name: Validate all profiles
+        run: make check-all
+
+      - name: Upload compiled previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: typst-cv-previews
+          path: build/*.pdf

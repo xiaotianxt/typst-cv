@@ -1,0 +1,15 @@
+name: GPU Training Orchestrator
+affiliation: Systems Research Project
+startDate: 2023-09-01
+endDate: 2024-04-01
+url: https://github.com/example/gpu-orchestrator
+highlights:
+  - >-
+    Designed a *Python* scheduler for distributed training jobs with quota-aware
+    placement, preemption, and priority classes across heterogeneous GPU pools.
+  - >-
+    Integrated telemetry from *Prometheus* and node exporters to steer placement
+    decisions using GPU memory pressure, queue depth, and retry history.
+  - >-
+    Reduced average job wait time by 37% in replay benchmarks by batching
+    placement decisions and packing short jobs into partially idle nodes.

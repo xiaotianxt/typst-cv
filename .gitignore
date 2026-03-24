@@ -1,0 +1,6 @@
+.DS_Store
+build/
+*.pdf
+!assets/
+!assets/*.png
+!assets/*.svg

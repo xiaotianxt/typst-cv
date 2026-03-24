@@ -1,0 +1,15 @@
+name: Columnar Query Engine
+affiliation: Database Systems Project
+startDate: 2023-01-01
+endDate: 2023-05-01
+url: https://github.com/example/columnar-query-engine
+highlights:
+  - >-
+    Implemented a vectorized execution engine in *Rust* with predicate pushdown,
+    hash aggregation, and pipelined joins for analytical workloads.
+  - >-
+    Added a disk-backed buffer manager with page eviction metrics, reducing
+    repeated scans during TPC-H style benchmarks.
+  - >-
+    Built correctness and performance suites covering concurrency, spill-to-disk
+    paths, and large table scans across synthetic warehouse datasets.
